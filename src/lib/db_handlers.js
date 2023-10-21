@@ -21,8 +21,6 @@ async function readCollectionDataById(collection, item, query, isCustom = true) 
 		});
 	}
 
-  console.log("url: ", url);
-
 	let createGetConfig = {
 		method: 'get',
 		maxBodyLength: Infinity,
