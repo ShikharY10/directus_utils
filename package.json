@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/ShikharY10/directus_utils.git"
+    "url": "git+ssh://git@github.com/ShikharY10/directutils.git"
   },
   "keywords": [
     "directus",
@@ -24,10 +24,10 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ShikharY10/directus_utils/issues",
+    "url": "https://github.com/ShikharY10/directutils/issues",
     "email": "connectoshikhar10@gmail.com"
   },
-  "homepage": "https://github.com/ShikharY10/directus_utils#readme",
+  "homepage": "https://github.com/ShikharY10/directutils#readme",
   "dependencies": {
     "@sendgrid/mail": "^7.7.0",
     "axios": "^1.5.1",
