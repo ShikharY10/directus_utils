@@ -8,34 +8,34 @@ const axios = require("axios");
  * @returns {object} Returns collection record object
  */
 async function readCollectionDataById(collection, item, query, isCustom = true) {
-	var url = isCustom ? `${BASE_URL}/items/${collection}/${item}?` : `${BASE_URL}/${collection}/${item}`;
+	var url = isCustom ? `${BASE_URL}/items/${collection}/${item}?` : `${BASE_URL}/${collection}/${item}?`;
 
 	if (query != null) {
 		Object.entries(query).forEach(([key, value]) => {
-			console.log("Key: ", key, "Value: ", value);
+			console.log("Key: ", key, " | Value: ", value);
 			if (key == "filter") {
 				url = `${url}${key}=${JSON.stringify(value)}&`;
 			} else {
 				url = `${url}${key}=${value}&`;
 			}
-			
 		});
 	}
 
-	// const filter = JSON.stringify(query);
+  console.log("url: ", url);
+
 	let createGetConfig = {
 		method: 'get',
 		maxBodyLength: Infinity,
 		url: url,
 		headers: { 
 			'Content-Type': 'application/json', 
-			'Authorization': `Bearer ${process.env.STATIC_ACCESS_TOKEN}`
+			'Authorization': `Bearer ${ADMIN_STATIC_TOKEN}`
 		},
 	};
 
 	const response = await axios.request(createGetConfig);
 	if (response.status == 200) {
-		return response.data.data[0];
+		return response.data.data;
 	}
 }
 
