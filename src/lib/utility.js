@@ -1,6 +1,12 @@
 const sgMail = require('@sendgrid/mail')
 const twilio = require('twilio');
 
+/**
+ * This utlity function is helpfull for accessing correct directus base url based on `ENVIRONMENT` from environment variables.
+ * 
+ * `ENVIRONMENT` can "local" or "remote"
+ * @returns 
+ */
 function getBaseUrl() {
 	var baseURL = "";
 	if (process.env.ENVIRONMENT == "local") {
@@ -8,14 +14,31 @@ function getBaseUrl() {
 	} else if (process.env.ENVIRONMENT == "remote") {
 		baseURL = process.env.DIRECTUS_REMOTE_BASE_URL;
 	}
-	console.error(`[RUNNING IN ${process.env.ENVIRONMENT} ENVIRONMENT]`);
+
+	if (process.env.MODE == "dev") {
+		console.error(`[RUNNING IN ${process.env.ENVIRONMENT} ENVIRONMENT]`);
+	}
+	
 	return baseURL;
 }
 
+/**
+ * Creates a response object
+ * @param {boolean} success Specifies whether the request is successful or failed
+ * @param {any | null} error If any error happen then that error should be send in response using this field
+ * @param {object | null} data If success, then data should be send in response using this field
+ * @param {string | null} object Optional. waht is object referrance name that we are send in response using `data` field
+ * @param {string | null} warning For sending any warning using response body
+ * @returns {object} Response object
+ */
 function createResponse(success, error, data=null, object=null, warning=null) {
 	return {success, error, data, object, warning};
 }
 
+/**
+ * Generate UUID using npm uuid package
+ * @returns {string} return uuid in string type
+ */
 function generateUuId() {
 	const uuid = uuidv4();
 	return uuid;

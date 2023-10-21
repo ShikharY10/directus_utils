@@ -39,6 +39,14 @@ async function readCollectionDataById(collection, item, query, isCustom = true) 
 	}
 }
 
+/**
+ * 
+ * @param {string} collection directus collection name
+ * @param {object} query Query object 
+ * @param {boolean} expectMultiple specifies whether to expect list of object or just a onject from the response
+ * @param {boolean} isCustom Specifies this operation is done on default collection or normal collection
+ * @returns {object} Returns collection read object or list based `expectMultiple` params
+ */
 async function readCollectionDataByQuery(collection, query, expectMultiple=false, isCustom=true) {
 	var url = isCustom ? `${BASE_URL}/items/${collection}?` : `${BASE_URL}/${collection}`
 
@@ -75,6 +83,14 @@ async function readCollectionDataByQuery(collection, query, expectMultiple=false
 	}
 }
 
+/**
+ * 
+ * @param {string} collection directus collection name
+ * @param {string} item Id of the record of a collection
+ * @param {object} body data that you want to update
+ * @param {boolean} isCustom Specifies this operation is done on default collection or normal collection
+ * @returns {object} returns updated object
+ */
 async function updateCollectionDataById(collection, item, body, isCustom = true) {
 	const url = isCustom ? `${BASE_URL}/items/${collection}/${item}` : `${BASE_URL}/${collection}/${item}`;
 	const data = JSON.stringify(body);
@@ -98,6 +114,13 @@ async function updateCollectionDataById(collection, item, body, isCustom = true)
 	}
 }
 
+/**
+ * 
+ * @param {string} collection directus collection name
+ * @param {object} body data that you want to create
+ * @param {boolean} isCustom Specifies this operation is done on default collection or normal collection
+ * @returns {object} returns new created record
+ */
 async function createCollectionData(collection, body, isCustom = true) {
 	const url = isCustom ? `${BASE_URL}/items/${collection}` : `${BASE_URL}/${collection}`;
 	const data = JSON.stringify(body);
@@ -121,6 +144,12 @@ async function createCollectionData(collection, body, isCustom = true) {
 	}
 }
 
+/**
+ * 
+ * @param {string} collection directus collection name
+ * @param {string} itemId Id of the record of a collection
+ * @returns {boolean} returns true or false based success and failure
+ */
 async function deleteCollectionData(collection, itemId) {
 	const url = `${BASE_URL}/items/${collection}/${itemId}`;
 	
@@ -135,7 +164,11 @@ async function deleteCollectionData(collection, itemId) {
 	};
 
 	const response = await axios.request(createPatchConfig);
-	return response.status;
+	if (response.status == 204) {
+		return true;
+	} else {
+		return false;
+	}
 }
 
 module.exports = {
