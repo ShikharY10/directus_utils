@@ -7,9 +7,9 @@ const copyFileContent = (source, destination) => {
     const content = fs.readFileSync(source, 'utf-8');
     fs.writeFileSync(destination, content);
 
-    console.log(`Content copied from '${source}' to '${destination}' successfully.`);
+    console.log("[directutils] [Gossip Successfull] : ", chalk.green(source), ">>>", chalk.green(destination));
   } catch (e) {
-    console.error(`An error occurred: ${e}`);
+    console.log(chalk.red(`An error occurred: ${e}`));
   }
 };
 
@@ -25,13 +25,12 @@ function listener(project_name, extension_type, extension_name) {
     const watcher = chokidar.watch(SOURCE, { ignoreInitial: true });
 
     watcher.on('all', (event, path) => {
-    console.log(`File ${path} was ${event}`);
     if (event === 'add' || event === 'change') {
         copyFileContent(SOURCE, DESTINATION);
     }
     });
 
-    console.log(chalk.green(`[directus_utils] [Listner] => Watching for changes in '${SOURCE}' file`));
+    console.log(chalk.green(`[directutils] [Gossip] => Watching for changes in '${SOURCE}' file`));
 }
 
 module.exports = listener;
