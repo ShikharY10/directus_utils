@@ -12,3 +12,7 @@
 - Added JSDocs comment
 - Added better logging statements
 - Resolved bug with `readCollectionDataById` function
+
+## v1.0.2
+
+- Solved bug related to BASE_URL

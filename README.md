@@ -11,7 +11,9 @@ A npm package that serves as utlity for directus extensions. This utility try to
 
 # Installation
 
-`npm install directutils`
+```bash
+npm install directutils
+```
 
 # Example
 
