@@ -1,5 +1,5 @@
 const axios = require("axios");
-
+const { getBaseUrl } = require("./_internal");
 /**
  * @param {string} collection directus collection name
  * @param {string} item Id of the record of a collection
@@ -8,7 +8,7 @@ const axios = require("axios");
  * @returns {object} Returns collection record object
  */
 async function readCollectionDataById(collection, item, query, isCustom = true) {
-	var url = isCustom ? `${BASE_URL}/items/${collection}/${item}?` : `${BASE_URL}/${collection}/${item}?`;
+	var url = isCustom ? `${getBaseUrl()}/items/${collection}/${item}?` : `${getBaseUrl()}/${collection}/${item}?`;
 
 	if (query != null) {
 		Object.entries(query).forEach(([key, value]) => {
@@ -46,7 +46,7 @@ async function readCollectionDataById(collection, item, query, isCustom = true) 
  * @returns {object} Returns collection read object or list based `expectMultiple` params
  */
 async function readCollectionDataByQuery(collection, query, expectMultiple=false, isCustom=true) {
-	var url = isCustom ? `${BASE_URL}/items/${collection}?` : `${BASE_URL}/${collection}`
+	var url = isCustom ? `${getBaseUrl()}/items/${collection}?` : `${getBaseUrl()}/${collection}`
 
 	Object.entries(query).forEach(([key, value]) => {
 		if (key == "filter") {
@@ -90,7 +90,7 @@ async function readCollectionDataByQuery(collection, query, expectMultiple=false
  * @returns {object} returns updated object
  */
 async function updateCollectionDataById(collection, item, body, isCustom = true) {
-	const url = isCustom ? `${BASE_URL}/items/${collection}/${item}` : `${BASE_URL}/${collection}/${item}`;
+	const url = isCustom ? `${getBaseUrl()}/items/${collection}/${item}` : `${getBaseUrl()}/${collection}/${item}`;
 	const data = JSON.stringify(body);
 	
 	let createPatchConfig = {
@@ -120,7 +120,7 @@ async function updateCollectionDataById(collection, item, body, isCustom = true)
  * @returns {object} returns new created record
  */
 async function createCollectionData(collection, body, isCustom = true) {
-	const url = isCustom ? `${BASE_URL}/items/${collection}` : `${BASE_URL}/${collection}`;
+	const url = isCustom ? `${getBaseUrl()}/items/${collection}` : `${getBaseUrl()}/${collection}`;
 	const data = JSON.stringify(body);
 	
 	let createPatchConfig = {
@@ -149,7 +149,7 @@ async function createCollectionData(collection, body, isCustom = true) {
  * @returns {boolean} returns true or false based success and failure
  */
 async function deleteCollectionData(collection, itemId) {
-	const url = `${BASE_URL}/items/${collection}/${itemId}`;
+	const url = `${getBaseUrl()}/items/${collection}/${itemId}`;
 	
 	let createPatchConfig = {
 		method: 'delete',
