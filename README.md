@@ -15,7 +15,7 @@ Are you tired of the hassles that come with creating and maintaining Directus ex
 
 - Seamless Directus API Access: Your Directus extension deserves the power to interact with the Directus API effortlessly. Our utility equips you with a rich set of functions, enabling you to make API calls from your extension with ease. Whether you need to fetch data, create content, or manage users, we've got you covered.
 
-Simplify your Directus extension development workflow today with our user-friendly utility. Say hello to enhanced productivity and reduced development headaches. Get started now and experience the difference!"
+Simplify your Directus extension development workflow today with our user-friendly utility. Say hello to enhanced productivity and reduced development headaches. Get started now and experience the difference!
 
 # Installation
 
