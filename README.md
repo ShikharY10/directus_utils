@@ -7,7 +7,15 @@
 </div>
 <br>
 
-A npm package that serves as utlity for directus extensions. This utility try to solve two major issue that comes while developing directus extension, One is automatic copying of generated code from `dist/index.js` file to directus repo. And other thing is it contains all the function if you want to call directus API from extension.
+Welcome to the Directus Extension Utility <b>directus</b>. Your NPM package solution for streamlined Directus extension development!
+
+Are you tired of the hassles that come with creating and maintaining Directus extensions? Look no further, as our utility is here to make your life easier. This comprehensive NPM package addresses two crucial challenges developers often face in the Directus ecosystem.
+
+- Automated Code Migration: Say goodbye to manual code copying! Our utility simplifies the process by automatically copying generated code from your dist/index.js file to your Directus repository. This time-saving feature eliminates tedious, error-prone tasks, allowing you to focus on your extension's core functionality.
+
+- Seamless Directus API Access: Your Directus extension deserves the power to interact with the Directus API effortlessly. Our utility equips you with a rich set of functions, enabling you to make API calls from your extension with ease. Whether you need to fetch data, create content, or manage users, we've got you covered.
+
+Simplify your Directus extension development workflow today with our user-friendly utility. Say hello to enhanced productivity and reduced development headaches. Get started now and experience the difference!"
 
 # Installation
 
