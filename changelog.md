@@ -16,3 +16,7 @@
 ## v1.0.2
 
 - Solved bug related to BASE_URL
+
+## v1.0.3
+
+- Code refactored
