@@ -1,26 +1,6 @@
 const sgMail = require('@sendgrid/mail')
 const twilio = require('twilio');
-
-/**
- * This utlity function is helpfull for accessing correct directus base url based on `ENVIRONMENT` from environment variables.
- * 
- * `ENVIRONMENT` can "local" or "remote"
- * @returns 
- */
-function getBaseUrl() {
-	var baseURL = "";
-	if (process.env.ENVIRONMENT == "local") {
-		baseURL = process.env.DIRECTUS_LOCAL_BASE_URL;		
-	} else if (process.env.ENVIRONMENT == "remote") {
-		baseURL = process.env.DIRECTUS_REMOTE_BASE_URL;
-	}
-
-	if (process.env.MODE == "dev") {
-		console.error(`[RUNNING IN ${process.env.ENVIRONMENT} ENVIRONMENT]`);
-	}
-	
-	return baseURL;
-}
+const {getBaseUrl} = require("./_internal")
 
 /**
  * Creates a response object
