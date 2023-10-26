@@ -26,3 +26,7 @@
 - Bug Solve related to access token
 - Reimplmentation of gossip feature
 - Readme update according to new gossip command
+
+## v1.0.5
+
+- Remove unnecessary codes
