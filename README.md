@@ -32,16 +32,14 @@ Replace the below command with `"dev"` script in generated `package.json` file o
 ```json
 {
   "scripts": {
-    "dev": "concurrently \"directutils gossip <project-name> <extension-type> <extension-name>\" \"directus-extension build -w --no-minify\""
+    "dev": "concurrently \"directutils gossip <destination-file>\" \"directus-extension build -w --no-minify\""
   }
 }
 ```
 
 Be make sure replace these in above command
 
-- `<project-name>` name of the directus repo
-- `<extension-type>` type of the extension like hooks, endpoints, etc
-- `<extension-name>` name of the extension
+- `<destination-file>` : Full path of the destination file in which you want the content to be copied.
 
 ## Environment variable expected by this package
 
