@@ -25,7 +25,5 @@ function generateUuId() {
 module.exports = {
     getBaseUrl,
     createResponse,
-    generateUuId,
-    sendMail,
-    sendTextMessage
+    generateUuId
 }
