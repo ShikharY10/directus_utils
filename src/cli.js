@@ -10,18 +10,16 @@ function handleCLIargs() {
     // creating tool
     program
     .name("directus_utils")
-    .description("A CLI tool for performing simple math functions")
-    .version("1.0.0");
+    .description("Utility For Directus Extensions")
+    .version("1.0.4");
 
     // adding command
     program
     .command("gossip")
     .description("Watches for file change")
-    .argument("<project_name>", "Project Name")
-    .argument("<extension_type>", "Extension Type")
-    .argument("<extension name>", "Extension Name")
-    .action((a, b, c) => {
-        listner(a, b, c);
+    .argument("<destination_file>", "Destination File")
+    .action((a) => {
+        listner(a);
     });
 
     program.parse();

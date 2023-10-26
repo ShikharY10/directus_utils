@@ -27,7 +27,7 @@ async function readCollectionDataById(collection, item, query, isCustom = true) 
 		url: url,
 		headers: { 
 			'Content-Type': 'application/json', 
-			'Authorization': `Bearer ${ADMIN_STATIC_TOKEN}`
+			'Authorization': `Bearer ${process.env.STATIC_ACCESS_TOKEN}`
 		},
 	};
 
@@ -46,7 +46,7 @@ async function readCollectionDataById(collection, item, query, isCustom = true) 
  * @returns {object} Returns collection read object or list based `expectMultiple` params
  */
 async function readCollectionDataByQuery(collection, query, expectMultiple=false, isCustom=true) {
-	var url = isCustom ? `${BASE_URL}/items/${collection}?` : `${BASE_URL}/${collection}`
+	var url = isCustom ? `${getBaseUrl()}/items/${collection}?` : `${getBaseUrl()}/${collection}`
 
 	Object.entries(query).forEach(([key, value]) => {
 		if (key == "filter") {
@@ -62,7 +62,7 @@ async function readCollectionDataByQuery(collection, query, expectMultiple=false
 		url: url,
 		headers: { 
 			'Content-Type': 'application/json', 
-			'Authorization': `Bearer ${process.env.ADMIN_STATIC_TOKEN}`
+			'Authorization': `Bearer ${process.env.STATIC_ACCESS_TOKEN}`
 		},
 	};
 

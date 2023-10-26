@@ -13,14 +13,10 @@ const copyFileContent = (source, destination) => {
   }
 };
 
-function listener(project_name, extension_type, extension_name) {
-
-    const PROJECT_NAME = (project_name != null) ? project_name : process.env.PROJECT_NAME;
-    const EXT_TYPE = (extension_type != null) ? extension_type : process.env.EXT_TYPE;
-    const EXT_NAME = (extension_name != null) ? extension_name : process.env.EXT_NAME;
+function listener(destinationFile) {
     
     const SOURCE = './dist/index.js';
-    const DESTINATION = `../../${PROJECT_NAME}/extensions/${EXT_TYPE}/${EXT_NAME}/index.js`;
+    const DESTINATION = (destinationFile != null) ? destinationFile : process.env.DESTINATION_FILE;
 
     const watcher = chokidar.watch(SOURCE, { ignoreInitial: true });
 
