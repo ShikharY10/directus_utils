@@ -29,11 +29,9 @@
   },
   "homepage": "https://github.com/ShikharY10/directutils#readme",
   "dependencies": {
-    "@sendgrid/mail": "^7.7.0",
     "axios": "^1.5.1",
     "chalk": "^4.1.2",
     "chokidar": "^3.5.3",
-    "commander": "^11.1.0",
-    "twilio": "^4.18.1"
+    "commander": "^11.1.0"
   }
 }
