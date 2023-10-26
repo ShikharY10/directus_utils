@@ -20,3 +20,9 @@
 ## v1.0.3
 
 - Code refactored
+
+## v1.0.4
+
+- Bug Solve related to access token
+- Reimplmentation of gossip feature
+- Readme update according to new gossip command
