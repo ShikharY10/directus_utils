@@ -1,5 +1,3 @@
-const sgMail = require('@sendgrid/mail')
-const twilio = require('twilio');
 const {getBaseUrl} = require("./_internal")
 
 /**
@@ -22,46 +20,6 @@ function createResponse(success, error, data=null, object=null, warning=null) {
 function generateUuId() {
 	const uuid = uuidv4();
 	return uuid;
-}
-
-async function sendMail(to, from, subject, text, html) {
-    sgMail.setApiKey(process.env.SENDGRID_API_KEY)
-
-	const msg = {
-		to: to, // Change to your recipient
-		from: from, // Change to your verified sender
-		subject: subject,
-		text: text,
-		html: html,
-	};
-
-	sgMail
-	.send(msg)
-	.then(() => {
-		console.log('Email sent')
-	})
-	.catch((error) => {
-		throw new Error(createErrorObject(error, 500));
-	})
-}
-
-async function sendTextMessage(body, to, from, media) {
-    const client = twilio(
-        process.env.TWILIO_ACCOUNT_SID,
-        process.env.TWILIO_AUTH_TOKEN
-    );
-
-	client.messages
-	.create({   
-		body: body,
-		from: from,
-		to: to,
-		mediaUrl: media
-	}) 
-	.then(message => console.log(message.sid)) 
-	.catch(error => {
-		console.log(`[SCHEDULAR ERROR] [SMS] [CODE: ${500}] => ${error}`);
-	})
 }
 
 module.exports = {
