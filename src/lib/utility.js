@@ -1,4 +1,5 @@
 const {getBaseUrl} = require("./_internal")
+const { v4: uuidv4 } = require('uuid');
 
 /**
  * Creates a response object
