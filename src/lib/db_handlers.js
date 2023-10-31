@@ -46,7 +46,7 @@ async function readCollectionDataById(collection, item, query, isCustom = true) 
  * @returns {object} Returns collection read object or list based `expectMultiple` params
  */
 async function readCollectionDataByQuery(collection, query, expectMultiple=false, isCustom=true) {
-	var url = isCustom ? `${getBaseUrl()}/items/${collection}?` : `${getBaseUrl()}/${collection}`
+	var url = isCustom ? `${getBaseUrl()}/items/${collection}?` : `${getBaseUrl()}/${collection}?`
 
 	Object.entries(query).forEach(([key, value]) => {
 		if (key == "filter") {
