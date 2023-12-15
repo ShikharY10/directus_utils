@@ -30,3 +30,8 @@
 ## v1.0.5
 
 - Remove unnecessary codes
+
+## v1.0.8
+
+- Removed unwanted log statements
+- Added dynamic url and access token support for all handler functions
