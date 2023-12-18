@@ -13,7 +13,7 @@ async function readCollectionDataById(collection, item, options = {}) {
 	var url = options.isCustom ? `${baseURL}/items/${collection}/${item}?` : `${baseURL}/${collection}/${item}?`;
 
 	if (options.query != null) {
-		Object.entries(query).forEach(([key, value]) => {
+		Object.entries(options.query).forEach(([key, value]) => {
 			if (key == "filter") {
 				url = `${url}${key}=${JSON.stringify(value)}&`;
 			} else {
