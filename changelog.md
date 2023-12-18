@@ -35,3 +35,6 @@
 
 - Removed unwanted log statements
 - Added dynamic url and access token support for all handler functions
+
+## v1.0.9
+- Resolved query bug in readCollectionById API
