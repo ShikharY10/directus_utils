@@ -6,7 +6,7 @@ const { getBaseUrl } = require("./_internal");
  * @param {object} options options, includes: `query` `url`, `token`, `isCustom`
  * @returns {object} Returns collection record object
  */
-async function readCollectionDataById(collection, item, options = {}) {
+async function readCollectionDataById(collection, item, options = { isCustom: true }) {
 	const baseURL = (options.url != null) ? options.url : getBaseUrl();
 	const token = (options.token != null) ? options.token : process.env.STATIC_ACCESS_TOKEN;
 
@@ -45,7 +45,7 @@ async function readCollectionDataById(collection, item, options = {}) {
  * @param {object} options options, includes: `url`, `token`, `isCustom`, `expectMultiple`
  * @returns {object} Returns collection read object or list based `expectMultiple` params
  */
-async function readCollectionDataByQuery(collection, query, options = {}) {
+async function readCollectionDataByQuery(collection, query, options = { isCustom: true, expectMultiple: false }) {
 
 	const baseURL = (options.url != null) ? options.url : getBaseUrl();
 	const token = (options.token != null) ? options.token : process.env.STATIC_ACCESS_TOKEN;
@@ -91,7 +91,7 @@ async function readCollectionDataByQuery(collection, query, options = {}) {
  * @param {object} options options, includes: `url`, `token`, `isCustom`
  * @returns {object} returns updated object
  */
-async function updateCollectionDataById(collection, item, body, options = {}) {
+async function updateCollectionDataById(collection, item, body, options = { isCustom: true }) {
 
 	const baseURL = (options.url != null) ? options.url : getBaseUrl();
 	const token = (options.token != null) ? options.token : process.env.STATIC_ACCESS_TOKEN;
@@ -125,7 +125,7 @@ async function updateCollectionDataById(collection, item, body, options = {}) {
  * @param {object} options options, includes: `url`, `token`, `isCustom`
  * @returns {object} returns new created record
  */
-async function createCollectionData(collection, body, options = {}) {
+async function createCollectionData(collection, body, options = { isCustom: true }) {
 
 	const baseURL = (options.url != null) ? options.url : getBaseUrl();
 	const token = (options.token != null) ? options.token : process.env.STATIC_ACCESS_TOKEN;
@@ -159,7 +159,7 @@ async function createCollectionData(collection, body, options = {}) {
  * @param {object} options options, includes: `url`, `token`
  * @returns {boolean} returns true or false based success and failure
  */
-async function deleteCollectionData(collection, itemId, options = {}) {
+async function deleteCollectionData(collection, itemId, options = { isCustom: true }) {
 
 	const baseURL = (options.url != null) ? options.url : getBaseUrl();
 	const token = (options.token != null) ? options.token : process.env.STATIC_ACCESS_TOKEN;

@@ -38,3 +38,7 @@
 
 ## v1.0.9
 - Resolved query bug in readCollectionById API
+
+## v1.1.0
+- First major version
+- All minor bug solved
