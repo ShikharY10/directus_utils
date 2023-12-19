@@ -1,6 +1,6 @@
 {
   "name": "directutils",
-  "version": "1.0.9",
+  "version": "1.1.0",
   "description": "Utility for directus extensions",
   "main": "./src/index.js",
   "scripts": {
